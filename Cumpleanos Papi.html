@@ -663,7 +663,7 @@ function openGift() {
     const bw = 160;
     const totalW = bw * 2 + gap;
     const startX = ctaRect.left + ctaRect.width / 2 - totalW / 2;
-    const topY = ctaRect.top - 80;
+    const topY = ctaRect.top - 95;
 
     btnRecibir.style.left  = startX + 'px';
     btnRecibir.style.top   = topY + 'px';
@@ -702,10 +702,17 @@ function openGift() {
     btnRecibir.addEventListener('mouseenter', () => escapeBtn(btnRecibir));
     btnRecibir.addEventListener('touchstart', (e) => { e.preventDefault(); escapeBtn(btnRecibir); });
 
-    // "Esperar" works normally — add your action here
+    // "Esperar" muestra confirmación sin tapar el enlace
     btnEsperar.addEventListener('click', () => {
-      btnEsperar.textContent = '😅 ASI ME GUSTAAA, manejando la ansiedad!';
+      btnEsperar.textContent = '😎 ASI ME GUSTA';
       btnEsperar.style.background = 'linear-gradient(135deg, #a8edea, #fed6e3)';
+    });
+
+    // "Averigua..." cambia su propio texto al hacer click
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      link.textContent = 'Ya te dije que está en camino, no desconfíes 😜';
+      link.style.background = 'linear-gradient(135deg, #6a11cb, #2575fc)';
     });
   }, 800);
 
